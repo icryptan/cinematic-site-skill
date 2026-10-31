@@ -1,28 +1,28 @@
 # CinematicSite
 
-Навык для AI-агента, который помогает создавать выразительные сайты под конкретный бренд: от брифа и референсов до выбранного направления, собственного 3D-мира или движения и проверенного превью.
+An AI agent skill for creating distinctive, brand-specific websites—from a brief and visual references to an approved design direction, custom 3D or motion, and a verified preview.
 
-Это не генератор перекрашенных лендингов. Каркас намеренно нейтральный: композиция, шрифты, разделы, сцена и движение появляются из брифа.
+Each website gets its own visual direction. The starting kit is deliberately neutral: layout, typography, sections, scenes, and motion are designed around the brand brief.
 
-## Что входит
+## What's included
 
-- `CinematicSite/SKILL.md` — точка входа и выбор задачи.
-- `Intents/` — новый сайт, проверка и согласованный выкат.
-- `References/` — направления, приёмы, качество, источники и технические ловушки.
-- `Tools/` — генератор проекта, дополнительная Chrome-диагностика и справки.
-- `Kit/` — Astro-каркас, локализация, токены, загрузка, превью и проверка сборки.
+- `CinematicSite/SKILL.md` — the skill entry point and task routing.
+- `Intents/` — website creation, verification, and owner-approved deployment.
+- `References/` — design directions, techniques, quality standards, sources, and technical pitfalls.
+- `Tools/` — a project generator, optional Chrome diagnostics, and usage guides.
+- `Kit/` — a neutral Astro starter with localization, design tokens, loading fallbacks, a preview server, and build checks.
 
-Готовые 3D-сцены, фото, клиентские проекты и аккаунты хостинга не поставляются. Three.js и ассеты выбираются отдельно для проекта.
+The skill folders live inside `CinematicSite/`. Finished 3D scenes, photos, client projects, and hosting accounts are not included. Choose Three.js and other assets separately for each project.
 
-## Установка
+## Installation
 
-Нужны Bun и Git. Скопируйте целиком папку `CinematicSite` в каталог навыков своего агента; путь зависит от агента. Для запуска инструментов установка в агент не нужна.
+You need Bun and Git. Copy the entire `CinematicSite` folder into your agent's skills directory; the location depends on the agent. You can also run the tools directly without installing the skill into an agent.
 
-Прочитайте [инструкцию установки](CinematicSite/Setup.md), затем можно попросить агента: «Создай кинематографичный сайт для студии керамики; сначала покажи варианты направления».
+Read the [setup guide](CinematicSite/Setup.md), then try a request such as: "Create a cinematic website for a ceramics studio. Show me the design directions before building."
 
-## Попробовать генератор
+## Try the project generator
 
-Из корня репозитория, выбрав свободный каталог:
+From the repository root, choose a destination directory that does not already exist:
 
 ```bash
 bun CinematicSite/Tools/NewSite.ts --name demo-site --brand "Demo Studio" --dir /tmp/demo-site --no-git
@@ -32,19 +32,19 @@ bun run verify
 bun run preview
 ```
 
-Генератор по умолчанию устанавливает зависимости. Для работы только с исходниками добавьте `--no-install`. Существующие папки не перезаписываются. Команда `preview` печатает свободный порт; остановка — Ctrl+C.
+The generator installs dependencies by default. Add `--no-install` to generate source files only. Existing directories are never overwritten. The `preview` command prints an available port; press Ctrl+C to stop it.
 
-Новый сайт пока содержит нейтральные заглушки. Проверка `bun run verify -- --release` намеренно не пропустит его в прод до замены заглушек и завершения переводов.
+The generated site starts with neutral placeholders. The `bun run verify -- --release` check intentionally rejects it until the placeholders are replaced and all translations are complete.
 
-## Как работает навык
+## How the skill works
 
-1. Бриф определяет аудиторию, желаемое действие и материалы.
-2. Референсы дают принципы; агент показывает 2–3 разных направления.
-3. После выбора агент создаёт разделы и визуал: 3D-мир, видео, DOM-движение или гибрид.
-4. Сборка, запасные пути и кадры проверяются на компьютере и телефоне.
-5. Владелец получает проверенное превью. Публичный выкат требует отдельного согласия и архива.
+1. The brief defines the audience, the intended visitor action, and the available materials.
+2. Visual references inform the principles; the agent presents two or three distinct design directions.
+3. Once a direction is chosen, the agent builds the sections and visuals: a 3D world, video, DOM-based motion, or a hybrid.
+4. The build, fallbacks, and rendered views are checked on desktop and mobile.
+5. The owner receives a verified preview. Public deployment requires separate approval and a backup.
 
-## Проверки инструментов
+## Tool checks
 
 ```bash
 bun test ./CinematicSite/Tools
@@ -52,12 +52,12 @@ bun CinematicSite/Tools/NewSite.ts --help
 bun CinematicSite/Tools/Check.ts --help
 ```
 
-Тесты генератора не доказывают качество готового дизайна. Автоматический `Check.ts` — дополнительная диагностика, а не замена настоящего браузерного просмотра; его ограничения описаны в [справке](CinematicSite/Tools/Check.help.md).
+Generator tests verify the tooling, not the quality of a finished design. The automated `Check.ts` provides additional diagnostics; visual review in a real browser is still required. See its [usage guide and limitations](CinematicSite/Tools/Check.help.md).
 
-## Сеть и секреты
+## Network access and secrets
 
-API-ключи для генератора не нужны. `bun install` обращается к реестру пакетов. `Check.ts` загружает сайт и его ресурсы в Chrome. Превью-сервер слушает все интерфейсы; noindex не ограничивает доступ. Внешнее размещение и контроль доступа настраивает владелец. Сам пакет не вызывает модели и не отправляет аналитику.
+The generator does not require API keys. `bun install` contacts the package registry. `Check.ts` loads the target website and its resources in Chrome. The preview server listens on all interfaces; noindex is not access control. The owner configures external hosting and access restrictions. The tools in this repository do not call AI models or send analytics themselves.
 
-## Источники и лицензия
+## References and license
 
-Дополнительные общедоступные источники перечислены в [справочнике](CinematicSite/References/References.md); их код и ассеты не включены в пакет. Зависимости Astro и инструменты сохраняют собственные лицензии. Собственные материалы пакета распространяются по [MIT](LICENSE).
+Optional public sources are listed in the [reference guide](CinematicSite/References/References.md); their code and assets are not bundled. Astro and other dependencies retain their own licenses. Original materials in this repository are available under the [MIT License](LICENSE).
