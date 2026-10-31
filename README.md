@@ -4,7 +4,7 @@
 
 An AI coding skill for turning a brand brief into a distinctive website—with art direction, 3D and motion, and careful desktop/mobile checks.
 
-[![Build](https://github.com/icryptan/cinematic-site-skill/actions/workflows/check.yml/badge.svg)](https://github.com/icryptan/cinematic-site-skill/actions/workflows/check.yml)
+[![Build](https://github.com/icryptan/cinematic-site-skill/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/icryptan/cinematic-site-skill/actions/workflows/check.yml)
 [![MIT License](https://img.shields.io/badge/License-MIT-1B2430?style=flat-square)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/icryptan/cinematic-site-skill?style=flat-square&label=Stars&color=E4B96C)](https://github.com/icryptan/cinematic-site-skill/stargazers)
 
@@ -14,7 +14,7 @@ An AI coding skill for turning a brand brief into a distinctive website—with a
 
 *Featured: [Animora](https://animora.video/stories/) — cinematic storytelling, warm light, expressive typography, and a film at the heart of the experience.*
 
-**Find this useful? [Give the repository a star](https://github.com/icryptan/cinematic-site-skill/stargazers) to save it and help others discover the skill.**
+**Find this useful? Click ⭐ Star at the top of this repository to save the skill and help others discover it.**
 
 ---
 
@@ -41,11 +41,16 @@ cd cinematic-site-skill
 **3. Give it a brief.** Start with the audience, the feeling, and the action you want visitors to take:
 
 ```text
-Use CinematicSite to create a premium website for a ceramics studio.
-It should feel calm, tactile, and full of daylight.
-The main action is booking a studio visit.
-Show 2–3 distinct art directions with references, then wait for my choice.
-The finished site must work on desktop and mobile, including reduced motion.
+Use CinematicSite for a
+premium ceramics studio.
+Mood: calm, tactile,
+and full of daylight.
+Main action: book a visit.
+Show 2–3 art directions
+with references.
+Wait for my choice.
+Verify desktop, mobile,
+and reduced motion.
 ```
 
 <details>
@@ -113,23 +118,32 @@ Screenshots were captured from the public pages on October 31, 2026. Website con
 ### A product with its own 3D world
 
 ```text
-Use CinematicSite for a boutique telescope brand.
-The website should feel like stepping into a quiet observatory at night.
-A single 3D world should connect the product, its details, and the sky.
-The main action is requesting a demonstration.
-Present distinct directions before building, and give the chosen design
-a useful mobile and reduced-motion experience.
+Use CinematicSite for a
+boutique telescope brand.
+Mood: a quiet observatory
+at night.
+Connect product, details,
+and sky with one 3D world.
+Main action: request a demo.
+Show directions for approval
+before building.
+Verify desktop, mobile,
+and reduced motion.
 ```
 
 ### A careful redesign
 
 ```text
-Use CinematicSite to redesign the website at [website URL].
-Keep the real content and primary inquiry flow accurate.
-The new design should make the service clearer and give the brand
-a distinctive visual identity grounded in references.
-Show the design directions for approval before implementation.
-Deliver a working preview with desktop and mobile evidence.
+Use CinematicSite to
+redesign [website URL].
+Keep the real content and
+primary inquiry flow.
+Create a distinctive visual
+identity from references.
+Show directions for approval
+before implementation.
+Deliver a verified preview
+for desktop and mobile.
 ```
 
 ## How the skill works
@@ -180,4 +194,4 @@ Optional public sources are listed in the [reference guide](CinematicSite/Refere
 
 ### Make your next website worth remembering.
 
-If CinematicSite helps you build something you're proud of, **[star this repository](https://github.com/icryptan/cinematic-site-skill/stargazers)**. It is a small way to support the project and keep it in your toolkit.
+If CinematicSite helps you build something you're proud of, **[open the repository](https://github.com/icryptan/cinematic-site-skill#start-of-content) and click ⭐ Star**. It is a small way to support the project and keep it in your toolkit.
