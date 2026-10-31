@@ -1,0 +1,21 @@
+{
+  "name": "cinematic-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "build:preview": "astro check && PUBLIC_PREVIEW=1 astro build",
+    "verify": "bun scripts/verify.ts",
+    "preview": "bun scripts/preview-server.ts",
+    "media": "bun scripts/placeholders.ts"
+  },
+  "dependencies": {
+    "astro": "7.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "typescript": "5.9.3"
+  }
+}

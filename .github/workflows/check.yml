@@ -1,0 +1,14 @@
+name: Проверка генератора
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  generator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun test ./CinematicSite/Tools
+      - run: bun CinematicSite/Tools/NewSite.ts --name smoke --brand "Demo Studio" --dir /tmp/cinematic-smoke --no-git
+      - run: bun run build && bun run verify
+        working-directory: /tmp/cinematic-smoke

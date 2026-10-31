@@ -1,0 +1,15 @@
+---
+/** Остальные языки живут в /<код>/; первый язык из site.locales — в корне. */
+import Page from "../../components/Page.astro";
+import { site, defaultLocale } from "../../site";
+
+export function getStaticPaths() {
+  return site.locales
+    .filter((locale) => locale.code !== defaultLocale.code)
+    .map((locale) => ({ params: { locale: locale.code }, props: { locale } }));
+}
+
+const { locale } = Astro.props;
+---
+
+<Page locale={locale} />

@@ -1,0 +1,66 @@
+---
+/**
+ * Страница-скелет: только контракт загрузки и доступности, без визуала.
+ * Разделы, мир, шрифты и движение приходят из выбранного направления (см. скилл, этап «сборка»).
+ *
+ * Контракт, на который опираются проверка и запасные пути:
+ *  - <html class="no-js"> → "js" в первом инлайн-скрипте;
+ *  - страховка: через 4,5 с без ui-ready ставится ui-failed и весь текст показывается;
+ *  - скрипт страницы в конце ставит ui-ready (src/scripts/boot.ts);
+ *  - раскрываемые элементы (data-reveal, data-split) видимы без JS и при ui-failed;
+ *  - prefers-reduced-motion — полная страница без движения.
+ */
+import "../../tokens.css";
+import "../styles/base.css";
+import { site, localePath, type Locale } from "../site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = locale.copy;
+const canonical = `${site.url}${localePath(locale)}`;
+---
+
+<!doctype html>
+<html lang={locale.hreflang} class="no-js" data-intro-key={site.introKey}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={t.seo.description} />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta property="og:title" content={t.seo.title} />
+    <meta property="og:description" content={t.seo.description} />
+    <link rel="canonical" href={canonical} />
+    {site.locales.length > 1 && site.locales.map((l) => <link rel="alternate" hreflang={l.hreflang} href={`${site.url}${localePath(l)}`} />)}
+    {site.locales.length > 1 && <link rel="alternate" hreflang="x-default" href={`${site.url}/`} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{t.seo.title}</title>
+    <script is:inline>
+      document.documentElement.classList.replace("no-js", "js");
+      // Страховка: если скрипт страницы не загрузился, через 4,5 с показываем весь текст.
+      window.setTimeout(() => {
+        const root = document.documentElement;
+        if (root.classList.contains("ui-ready")) return;
+        root.classList.add("ui-failed");
+        root.classList.remove("intro-pending");
+      }, 4500);
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">{t.skip}</a>
+    <main id="main">
+      <section class="skeleton" id="top">
+        <p class="skeleton__kicker" data-reveal>{site.brand.name}</p>
+        <h1 data-split>Каркас без визуала</h1>
+        <p data-reveal>Разделы, мир и движение появляются из выбранного направления.</p>
+      </section>
+    </main>
+    <script>
+      import { boot } from "../scripts/boot";
+      boot();
+    </script>
+  </body>
+</html>

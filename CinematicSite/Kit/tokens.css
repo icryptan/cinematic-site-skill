@@ -1,0 +1,25 @@
+/* Токены темы — ЗАГЛУШКА. Все значения заменяются палитрой, шрифтами и ритмом выбранного направления.
+ * Здесь нарочно нейтральный серый и системные шрифты: каркас собирается, но визуального решения не несёт.
+ * Если направление с 3D-миром, его реализация читает цвета из --world-*. */
+:root {
+  --color-bg: #161616;
+  --color-surface: #1f1f1f;
+  --color-text: #ededed;
+  --color-muted: #a0a0a0;
+  --color-accent: #bdbdbd;
+  --color-rule: #2e2e2e;
+
+  --font-display: ui-sans-serif, system-ui, sans-serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --page-gutter: clamp(1rem, 4vw, 4rem);
+  --page-max: 90rem;
+
+  /* цвета 3D-мира, если направление его использует */
+  --world-bg: var(--color-bg);
+  --world-light: var(--color-text);
+  --world-warm: var(--color-accent);
+  --world-accent: var(--color-accent);
+  --world-accent-2: var(--color-muted);
+}
